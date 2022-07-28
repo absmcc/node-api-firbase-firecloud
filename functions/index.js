@@ -1,10 +1,28 @@
 const functions = require("firebase-functions");
+const express = require("express");
+const cors = require("cors");
 
 
+const app = express();
+app.use(cors());
+//set up routes
 
-exports.helloThere = functions.https.onRequest((req, res) => {
-    res.send('Hello the Firebase Cloud user!');
+app.get('/test', (req, res) => {
+    res.send("Wow, it worked");
 })
+
+app.get('/another-one', (req, res) => {
+    res.send("Wow, this one works too");
+})
+exports.api = functions.https.onRequest(app);
+
+// exports.helloThere = functions.https.onRequest((req, res) => {
+//     res.send('Hello the Firebase Cloud user!');
+// })
+
+
+
+
 
 
 // // Create and Deploy Your First Cloud Functions
