@@ -14,6 +14,14 @@ app.get('/test', (req, res) => {
 app.get('/another-one', (req, res) => {
     res.send("Wow, this one works too");
 })
+
+app.post('/', (req,res) =>{
+    res.send('added new item')
+
+})
+app.get('/', (req, res) => {
+res.send("send all items");
+})
 exports.api = functions.https.onRequest(app);
 
 // exports.helloThere = functions.https.onRequest((req, res) => {
